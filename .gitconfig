@@ -1,3 +1,26 @@
+# This is Git's per-user configuration file.
+
 [user]
-	email = fdiaz@paloaltonetworks.com
-	name = Franklin Diaz
+# Please adapt and uncomment the following lines:
+name = FrankTheTank
+email = 2730246+devsecfranklin@users.noreply.github.com
+signingkey = 0EEA5B5E29145D73
+
+[gpg]
+program = /usr/bin/gpg
+
+[init]
+defaultBranch = main
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[safe]
+	directory = /mnt/storage1/workspace/dead10c5/badge-esp32-breakout
+	directory = /mnt/storage1/minecraft
+	directory = /mnt/storage1/minecraft
