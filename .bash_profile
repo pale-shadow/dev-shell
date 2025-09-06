@@ -1,15 +1,20 @@
-# this is required to set up oh my bash
-#. ~/.bashrc
 if [[ -f ~/.bashrc ]]; then
   source ~/.bashrc
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/usr/local/share/google-cloud-sdk/path.bash.inc' ]; then . '/usr/local/share/google-cloud-sdk/path.bash.inc'; fi
+#!/bin/bash
+if [ -e $HOME/.logon_script_done ]
+then
+  echo "No actions to do"
+  else
+  eval ssh-agent bash
+  ssh-add ~/.ssh/id_ed25519
+  kinit -f franklin
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/usr/local/share/google-cloud-sdk/completion.bash.inc' ]; then . '/usr/local/share/google-cloud-sdk/completion.bash.inc'; fi
+  # echo "First run of the script. Performing some actions" >> $HOME/run-once.txt
+  touch $HOME/.logon_script_done
+fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/fdiaz/.rd/bin:$PATH"
+export PATH="/home/franklin/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
