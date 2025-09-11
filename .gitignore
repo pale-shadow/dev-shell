@@ -1,3 +1,8 @@
 */__pycache__
 _build
 *.log
+.aws
+.azure
+.cups
+.DS_Store
+.wget-hsts
